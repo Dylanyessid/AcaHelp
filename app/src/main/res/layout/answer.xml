@@ -10,32 +10,32 @@
     android:background="@drawable/post">
 
     <TextView
-        android:id="@+id/tVTitle"
+        android:id="@+id/tVUsername"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
 
         android:layout_marginTop="32dp"
-        android:fontFamily="@font/red_hat_text_medium"
-        android:text="as"
+        android:fontFamily="@font/red_hat_text_medium_italic"
+        android:text="NAME"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="32sp"
+        android:textColor="@color/username"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tVDesc"
+        android:id="@+id/tVAnswer"
         android:layout_width="319dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="88dp"
         android:fontFamily="@font/red_hat_text_regular"
-        android:text="sd"
-        android:textAlignment="center"
+        android:text="ANSWER"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,7 +47,21 @@
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tVDesc" />
+        app:layout_constraintTop_toBottomOf="@+id/tVAnswer"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnDislike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toEndOf="@+id/btnLike"
+        app:layout_constraintTop_toBottomOf="@+id/tVAnswer"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

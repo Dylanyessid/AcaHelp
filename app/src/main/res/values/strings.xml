@@ -6,4 +6,6 @@
     <string name="ask">Preguntar</string>
     <string name="profile">Perfil</string>
     <string name="answersTitle">Respuestas:</string>
+    <string name="like">Like</string>
+    <string name="dislike">Dislike</string>
 </resources>

@@ -6,77 +6,82 @@
     android:layout_height="match_parent"
     tools:context=".QuestionDetails">
 
-    <TextView
-        android:id="@+id/eTTitle"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:fontFamily="@font/red_hat_text_semi_bold"
-        android:text="TITLE"
-        android:textColor="@color/black"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.277"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/eTTitle4"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/red_hat_text_semi_bold"
-        android:text="@string/answersTitle"
-        android:textColor="@color/black"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eTDesc" />
-
-    <TextView
-        android:id="@+id/eTUsername"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/red_hat_text_semi_bold_italic"
-        android:text="TITLE"
-        android:textColor="@color/username"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eTTitle" />
-
-    <TextView
-        android:id="@+id/eTDesc"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/red_hat_text_regular"
-        android:text="TITLE"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eTUsername" />
-
     <ScrollView
         android:id="@+id/scrollViewAnswers"
-        android:layout_width="355dp"
-        android:layout_height="351dp"
+        android:layout_width="387dp"
+        android:layout_height="701dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eTTitle4">
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/eTTitle"
+                android:layout_width="343dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/red_hat_text_semi_bold"
+                android:text="TITLE"
+                android:textColor="@color/black"
+                android:textSize="48sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/eTUsername"
+                android:layout_width="343dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/red_hat_text_semi_bold_italic"
+                android:text="TITLE"
+                android:textColor="@color/username"
+                android:textSize="32sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eTTitle" />
+
+            <TextView
+                android:id="@+id/eTDesc"
+                android:layout_width="343dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:text="TITLE"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eTUsername" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerAnswers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eTTitle4" />
+
+            <TextView
+                android:id="@+id/eTTitle4"
+                android:layout_width="343dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/red_hat_text_semi_bold"
+                android:text="@string/answersTitle"
+                android:textColor="@color/black"
+                android:textSize="48sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eTDesc" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,14 @@
 package com.example.acahelp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.acahelp.adapters.AnswerAdapter;
 import com.example.acahelp.interfaces.IAnswer;
 import com.example.acahelp.interfaces.questionAPI;
 import com.example.acahelp.models.Answer;
@@ -22,6 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class QuestionDetails extends AppCompatActivity {
 
     TextView eTTitle, eTUsername, eTDesc;
+    RecyclerView recyclerView;
     ArrayList<Answer> answers;
     Call<ArrayList<Answer>> call;
     String _id;
@@ -37,6 +41,7 @@ public class QuestionDetails extends AppCompatActivity {
         eTDesc.setText(intent.getStringExtra("desc"));
         _id = (intent.getStringExtra("questionId"));
         getAnswers();
+        recyclerView = findViewById(R.id.recyclerAnswers);
     }
 
     private void getAnswers(){
@@ -52,6 +57,9 @@ public class QuestionDetails extends AppCompatActivity {
             public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                 answers = response.body();
                 System.out.println(answers.get(0).getAnswer());
+                AnswerAdapter adapter = new AnswerAdapter(answers);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                recyclerView.setAdapter(adapter);
             }
 
             @Override

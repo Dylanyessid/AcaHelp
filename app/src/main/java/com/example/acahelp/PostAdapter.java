@@ -7,15 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.acahelp.models.Question;
-import com.example.acahelp.models.User;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -57,10 +53,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.questionTitle);
-            description = itemView.findViewById(R.id.questionDesc);
+            title = itemView.findViewById(R.id.tVTitle);
+            description = itemView.findViewById(R.id.tVDesc);
 
-            Button btnGoToQuestion = itemView.findViewById(R.id.btnGoToQuestion);
+            Button btnGoToQuestion = itemView.findViewById(R.id.btnLike);
             btnGoToQuestion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
