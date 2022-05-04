@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -57,14 +59,14 @@ public class MainScreen extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
                 questions = response.body();
-                System.out.println(" dsa" + questions.get(0).getDescription());
                 if(!response.isSuccessful()){
 
                 }
 
-                adapter= new PostAdapter(questions);
+                adapter= new PostAdapter(questions, getApplicationContext());
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 recyclerView.setAdapter(adapter);
+
             }
 
             @Override

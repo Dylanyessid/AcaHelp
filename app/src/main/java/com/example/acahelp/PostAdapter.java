@@ -1,9 +1,13 @@
 package com.example.acahelp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,9 +22,11 @@ import java.util.ArrayList;
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     ArrayList<Question> listData;
-
-    public PostAdapter(ArrayList<Question> listData) {
+    Context context;
+    public PostAdapter(ArrayList<Question> listData, Context context)
+    {
         this.listData = listData;
+        this.context = context;
     }
 
     @NonNull
@@ -47,16 +53,32 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         TextView title;
         TextView description;
+        String id;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.questionTitle);
             description = itemView.findViewById(R.id.questionDesc);
+
+            Button btnGoToQuestion = itemView.findViewById(R.id.btnGoToQuestion);
+            btnGoToQuestion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context,QuestionDetails.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("questionId", id);
+                    intent.putExtra("title", title.getText().toString());
+                    intent.putExtra("desc", description.getText().toString());
+                    System.out.println(description.getText().toString());
+                    context.startActivity(intent);
+                }
+            });
         }
 
         public void asignData(Question question) {
             title.setText(question.getTitle());
             description.setText(question.getDescription());
+             id= question.getId();
         }
     }
 }

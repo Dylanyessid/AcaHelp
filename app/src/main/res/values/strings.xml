@@ -5,4 +5,5 @@
     <string name="main">Principal</string>
     <string name="ask">Preguntar</string>
     <string name="profile">Perfil</string>
+    <string name="answersTitle">Respuestas:</string>
 </resources>

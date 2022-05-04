@@ -5,4 +5,18 @@
         android:fontWeight="400"
         android:font="@font/red_hat_text_bold" />
 
+    <font
+        android:font="@font/red_hat_text_medium" />
+
+    <font
+        android:font="@font/red_hat_text_regular" />
+
+    <font
+        android:font="@font/red_hat_text_semi_bold" />
+    <font
+        android:font="@font/red_hat_text_semi_bold_italic" />
+
+    <font
+        android:font="@font/red_hat_text_medium_italic" />
+
 </font-family>

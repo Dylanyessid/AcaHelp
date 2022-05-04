@@ -1,14 +1,14 @@
 package com.example.acahelp.models;
 
 public class Question {
-    private String id, title, description;
+    private String _id, title, description;
 
     public String getId() {
-        return id;
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String _id) {
+        this._id = _id;
     }
 
     public String getTitle() {
