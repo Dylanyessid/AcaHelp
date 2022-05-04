@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AcaHelp</string>
+    <string name="login">Entrar</string>
+    <string name="register">Registrar</string>
+    <string name="main">Principal</string>
+    <string name="ask">Preguntar</string>
+    <string name="profile">Perfil</string>
+</resources>
