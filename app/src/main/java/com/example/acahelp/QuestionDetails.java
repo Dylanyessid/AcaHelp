@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.acahelp.adapters.AnswerAdapter;
 import com.example.acahelp.interfaces.IAnswer;
-import com.example.acahelp.interfaces.questionAPI;
 import com.example.acahelp.models.Answer;
-import com.example.acahelp.models.Question;
 
 import java.util.ArrayList;
 
@@ -29,6 +29,9 @@ public class QuestionDetails extends AppCompatActivity {
     ArrayList<Answer> answers;
     Call<ArrayList<Answer>> call;
     String _id;
+    Button btnAnswer;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +45,21 @@ public class QuestionDetails extends AppCompatActivity {
         _id = (intent.getStringExtra("questionId"));
         getAnswers();
         recyclerView = findViewById(R.id.recyclerAnswers);
+        btnAnswer = findViewById(R.id.btnAnswer);
+        btnAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NewAnswer.class);
+                intent.putExtra("id", _id);
+                startActivity(intent);
+
+            }
+        });
     }
 
     private void getAnswers(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.52:4000")
+                .baseUrl("http://192.168.1.66:4000")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -56,7 +69,7 @@ public class QuestionDetails extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                 answers = response.body();
-                System.out.println(answers.get(0).getAnswer());
+
                 AnswerAdapter adapter = new AnswerAdapter(answers);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 recyclerView.setAdapter(adapter);

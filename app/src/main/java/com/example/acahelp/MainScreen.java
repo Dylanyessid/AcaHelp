@@ -1,26 +1,17 @@
 package com.example.acahelp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.acahelp.interfaces.questionAPI;
+import com.example.acahelp.interfaces.IQuestion;
 import com.example.acahelp.models.Question;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,10 +25,17 @@ public class MainScreen extends AppCompatActivity {
     ArrayList<Question> questions;
     Call<ArrayList<Question>> call;
     PostAdapter adapter;
+    SharedPreferences preferences;
+     String _id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+        preferences = getApplicationContext().getSharedPreferences( getString(R.string.sharedP), Context.MODE_PRIVATE);
+        System.out.println("KEY A VER SI ESTA BIEN : " + preferences.getString(getString(R.string.sharedP),"PRVT"));
+
+
         recyclerView= findViewById(R.id.recyclerQuestions);
         getQuestions();
 
@@ -49,12 +47,12 @@ public class MainScreen extends AppCompatActivity {
     private void getQuestions(){
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.52:4000")
+                .baseUrl("http://192.168.1.66:4000")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        questionAPI questionAPI = retrofit.create(questionAPI.class);
-        call = questionAPI.getQuestions();
+        IQuestion IQuestion = retrofit.create(IQuestion.class);
+        call = IQuestion.getQuestions();
         call.enqueue(new Callback<ArrayList<Question>>() {
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {

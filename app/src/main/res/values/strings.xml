@@ -1,4 +1,5 @@
 <resources>
+    <string name="sharedP">SH54$3@!sdD5o</string>
     <string name="app_name">AcaHelp</string>
     <string name="login">Entrar</string>
     <string name="register">Registrar</string>
@@ -8,4 +9,6 @@
     <string name="answersTitle">Respuestas:</string>
     <string name="like">Like</string>
     <string name="dislike">Dislike</string>
+    <string name="answer">Escribe tu respuesta aquí y presiona el botón de enviar respuesta.</string>
+    <string name="addAnswer">¿Sabes qué puedes responderle? ¡Atrévete y da una respuesta!</string>
 </resources>

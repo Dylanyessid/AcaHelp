@@ -2,7 +2,9 @@ package com.example.acahelp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import com.example.acahelp.interfaces.*;
 import com.example.acahelp.models.Question;
@@ -27,9 +30,11 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     Button btnLogin;
-
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnLogin  = findViewById(R.id.btnLogin);
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         User user = new User(eTEmail.getText().toString(), eTPass.getText().toString());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.52:4000")
+                .baseUrl("http://192.168.1.66:4000")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -62,9 +67,13 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (response.code()){
                     case 200:
-                        //Toast.makeText(getApplicationContext(),"Ingreso exitoso", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Ingreso exitoso", Toast.LENGTH_SHORT).show();
                         startActivity(mainIntent);
                         User res = (User) response.body();
+                        preferences = getApplicationContext().getSharedPreferences( getString(R.string.sharedP),Context.MODE_PRIVATE);
+                        editor = preferences.edit();
+                        editor.putString( getString(R.string.sharedP),res.getId());
+                        editor.apply();
                         break;
                     case 400:
                         Toast.makeText(getApplicationContext(), "Ocurrió un error al intentar iniciar sesión." , Toast.LENGTH_SHORT).show();

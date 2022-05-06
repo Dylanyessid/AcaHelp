@@ -24,7 +24,7 @@
                 android:id="@+id/eTTitle"
                 android:layout_width="343dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="48dp"
                 android:fontFamily="@font/red_hat_text_semi_bold"
                 android:text="TITLE"
                 android:textColor="@color/black"
@@ -63,7 +63,7 @@
                 android:id="@+id/recyclerAnswers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,14 +73,37 @@
                 android:id="@+id/eTTitle4"
                 android:layout_width="343dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/red_hat_text_semi_bold"
                 android:text="@string/answersTitle"
                 android:textColor="@color/black"
                 android:textSize="48sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnAnswer" />
+
+            <TextView
+                android:id="@+id/eTTitle2"
+                android:layout_width="343dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/red_hat_text_semi_bold"
+                android:text="@string/addAnswer"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eTDesc" />
+
+            <Button
+                android:id="@+id/btnAnswer"
+                android:layout_width="149dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="32dp"
+                android:text="Button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eTTitle2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

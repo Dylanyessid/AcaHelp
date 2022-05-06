@@ -10,7 +10,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 
-public interface questionAPI {
+public interface IQuestion {
 
     @GET("questions/getQuestions")
     Call<ArrayList<Question>> getQuestions();

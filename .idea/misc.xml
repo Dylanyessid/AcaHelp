@@ -5,11 +5,12 @@
       <map>
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/button.xml" value="0.18" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/input.xml" value="0.15" />
-        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/post.xml" value="0.1" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/post.xml" value="0.25" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/font/fonts.xml" value="0.22" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_main_screen.xml" value="0.1952191235059761" />
-        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_question_details.xml" value="0.33" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_new_answer.xml" value="0.22" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_question_details.xml" value="0.29489291598023065" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/answer.xml" value="0.33" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/post.xml" value="0.33" />
       </map>

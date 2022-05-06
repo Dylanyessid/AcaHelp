@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AcaHelp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".NewAnswer"
+            android:exported="false" />
+        <activity
             android:name=".QuestionDetails"
             android:exported="false" />
         <activity

@@ -3,6 +3,12 @@ package com.example.acahelp.models;
 public class Answer {
     String _id;
 
+    public Answer(String question, String user, String answer){
+        this.question = question;
+        this.user = user;
+        this.answer = answer;
+    }
+
     public String get_id() {
         return _id;
     }

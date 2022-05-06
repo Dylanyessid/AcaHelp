@@ -11,10 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.acahelp.PostAdapter;
 import com.example.acahelp.R;
+import com.example.acahelp.interfaces.IAnswer;
+import com.example.acahelp.interfaces.userAPI;
 import com.example.acahelp.models.Answer;
 import com.example.acahelp.models.Question;
+import com.example.acahelp.models.User;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder> {
 
@@ -42,7 +51,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView username;
+        TextView username, score;
         TextView answer;
         Button btnLike, btnDislike;
 
@@ -52,12 +61,38 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
             answer = itemView.findViewById(R.id.tVAnswer);
             btnLike = itemView.findViewById(R.id.btnLike);
             btnDislike = itemView.findViewById(R.id.btnDislike);
+            score = itemView.findViewById(R.id.tVScore);
 
         }
 
         public void asignData(Answer answer) {
-            username.setText(answer.getUser());
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://192.168.1.66:4000")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            userAPI userAPI = retrofit.create(userAPI.class);
+            Call<User> call = userAPI.getUserName(answer.getUser());
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    System.out.println(response.body());
+                    if(response.body()!=null){
+                        username.setText(response.body().getName() + " " + response.body().getSurname());
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    username.setText(null);
+                }
+            });
+            String scoreString = String.valueOf(answer.getScore());
             this.answer.setText(answer.getAnswer());
+            score.setText(scoreString);
         }
     }
+
+
 }
