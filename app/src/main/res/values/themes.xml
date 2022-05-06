@@ -7,10 +7,20 @@
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="ButtonBlue" parent="">
         <!-- Primary brand color. -->
         <item name="color">@color/blue</item>
 
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.AcaHelp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.AcaHelp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.AcaHelp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
