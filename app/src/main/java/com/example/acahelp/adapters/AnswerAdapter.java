@@ -9,12 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.acahelp.PostAdapter;
 import com.example.acahelp.R;
-import com.example.acahelp.interfaces.IAnswer;
 import com.example.acahelp.interfaces.userAPI;
 import com.example.acahelp.models.Answer;
-import com.example.acahelp.models.Question;
 import com.example.acahelp.models.User;
 
 import java.util.ArrayList;
@@ -88,7 +85,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
                     username.setText(null);
                 }
             });
-            String scoreString = String.valueOf(answer.getScore());
+            String scoreString = "Puntaje: "+ String.valueOf(answer.getScore());
             this.answer.setText(answer.getAnswer());
             score.setText(scoreString);
         }

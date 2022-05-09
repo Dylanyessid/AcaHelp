@@ -1,4 +1,4 @@
-package com.example.acahelp;
+package com.example.acahelp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.acahelp.QuestionDetails;
+import com.example.acahelp.R;
 import com.example.acahelp.models.Question;
 
 import java.util.ArrayList;
@@ -60,7 +62,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             btnGoToQuestion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context,QuestionDetails.class);
+                    Intent intent = new Intent(context, QuestionDetails.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra("questionId", id);
                     intent.putExtra("title", title.getText().toString());

@@ -102,4 +102,14 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="emailSignUp">Correo Electrónico</string>
+    <string name="nameSignUp">Nombre</string>
+    <string name="surnameSignUp">Apellidos</string>
+    <string name="passSignUp">Contraseña</string>
+    <string name="confirmPass">Confirmar contraseña</string>
+    <string name="TitleQuestionFragment">Escribe una pregunta aquí y pulsa en el botón de Enviar.</string>
+    <string name="QuestionTitlePlaceholder">Título de tu pregunta</string>
+    <string name="QuestionDescriptionPlaceholder">Describe con mayor detalle tu pregunta</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

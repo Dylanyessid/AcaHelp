@@ -18,7 +18,10 @@ import com.example.acahelp.interfaces.*;
 import com.example.acahelp.models.Question;
 import com.example.acahelp.models.User;
 
-import java.util.List;
+import java.net.URISyntaxException;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,7 +32,15 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLogin;
+    private Socket socket;
+    {
+        try{
+            socket = IO.socket("http://192.168.1.66:4000");
+        }catch (URISyntaxException e){
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+    Button btnLogin, btnSignUp;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     @Override
@@ -37,11 +48,21 @@ public class MainActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        socket.connect();
+        btnSignUp = findViewById(R.id.btnGoToSignUp);
         btnLogin  = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 login();
+            }
+        });
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent signUpIntent = new Intent(MainActivity.this, SignUp.class);
+                startActivity(signUpIntent);
             }
         });
     }
@@ -68,25 +89,28 @@ public class MainActivity extends AppCompatActivity {
                 switch (response.code()){
                     case 200:
                         Toast.makeText(getApplicationContext(),"Ingreso exitoso", Toast.LENGTH_SHORT).show();
-                        startActivity(mainIntent);
                         User res = (User) response.body();
                         preferences = getApplicationContext().getSharedPreferences( getString(R.string.sharedP),Context.MODE_PRIVATE);
                         editor = preferences.edit();
                         editor.putString( getString(R.string.sharedP),res.getId());
                         editor.apply();
+                        System.out.println( "Veamos cual da:" + preferences.getString(getString(R.string.sharedP), "xd"));
+                        mainIntent.putExtra("name", res.getName() + " " + res.getSurname());
+                        startActivity(mainIntent);
                         break;
                     case 400:
                         Toast.makeText(getApplicationContext(), "Ocurrió un error al intentar iniciar sesión." , Toast.LENGTH_SHORT).show();
-                        btnLogin.setEnabled(true);
+
                         break;
                     case 401:
                         Toast.makeText(getApplicationContext(), "Correo electrónico y/o contraseña no válido(s)." , Toast.LENGTH_SHORT).show();
-                        btnLogin.setEnabled(true);
+
                         break;
                     default:
-                        btnLogin.setEnabled(true);
+
                         break;
                 }
+                btnLogin.setEnabled(true);
             }
 
             @Override

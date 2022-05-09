@@ -18,4 +18,6 @@ public interface userAPI {
     @GET ("users/getName/{id}")
     Call<User> getUserName(@Path("id") String _id);
 
+    @POST ("users/register")
+    Call<User> signUp(@Body User user);
 }

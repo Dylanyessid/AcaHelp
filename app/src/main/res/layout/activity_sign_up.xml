@@ -24,72 +24,82 @@
             >
 
             <EditText
-                android:id="@+id/eTEmail2"
+                android:id="@+id/eTSurname"
                 android:layout_width="251dp"
                 android:layout_height="57dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:fontFamily="@font/red_hat_text_bold"
-                android:hint=""
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="@string/surnameSignUp"
                 android:inputType="textPersonName"
+                android:textColorHint="@color/inputHint"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.417"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eTEmail3" />
+                app:layout_constraintTop_toBottomOf="@+id/eTName" />
 
             <EditText
-                android:id="@+id/eTEmail4"
+                android:id="@+id/eTEmailSignUp"
                 android:layout_width="251dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:fontFamily="@font/red_hat_text_bold"
-                android:hint=""
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="@string/emailSignUp"
                 android:inputType="textPersonName"
+                android:textColorHint="@color/inputHint"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.417"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eTEmail2" />
+                app:layout_constraintTop_toBottomOf="@+id/eTSurname" />
 
             <EditText
-                android:id="@+id/eTEmail5"
+                android:id="@+id/eTPasswordSignUp"
                 android:layout_width="251dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:fontFamily="@font/red_hat_text_bold"
-                android:hint=""
-                android:inputType="textPersonName"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="@string/passSignUp"
+                android:inputType="textPassword"
+                android:textColorHint="@color/inputHint"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.417"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eTEmail4" />
+                app:layout_constraintTop_toBottomOf="@+id/eTEmailSignUp" />
 
             <EditText
-                android:id="@+id/eTEmail6"
+                android:id="@+id/eTConfirmPassword"
                 android:layout_width="251dp"
                 android:layout_height="57dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:fontFamily="@font/red_hat_text_bold"
-                android:hint=""
-                android:inputType="textPersonName"
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="@string/confirmPass"
+                android:inputType="textPassword"
+                android:textColorHint="@color/inputHint"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.417"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eTEmail5" />
+                app:layout_constraintTop_toBottomOf="@+id/eTPasswordSignUp" />
 
             <EditText
-                android:id="@+id/eTEmail3"
+                android:id="@+id/eTName"
                 android:layout_width="251dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:fontFamily="@font/red_hat_text_bold"
-                android:hint=""
+                android:fontFamily="@font/red_hat_text_regular"
+                android:hint="@string/nameSignUp"
                 android:inputType="textPersonName"
+                android:textColorHint="@color/inputHint"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.417"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -97,17 +107,18 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="92dp"
+                android:layout_marginTop="100dp"
                 android:fontFamily="@font/red_hat_text_semi_bold"
                 android:text="@string/register"
                 android:textColor="@color/black"
                 android:textSize="48sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.413"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -115,7 +126,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eTEmail6" />
+                app:layout_constraintTop_toBottomOf="@+id/eTConfirmPassword" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

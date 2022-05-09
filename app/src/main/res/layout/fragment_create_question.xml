@@ -4,30 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewAnswer">
+    tools:context=".fragments.CreateQuestionFragment">
+
+    <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/eTTitle3"
+        android:id="@+id/eTTitle5"
         android:layout_width="343dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/red_hat_text_semi_bold"
-        android:text="@string/addAnswer"
+        android:text="@string/TitleQuestionFragment"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/eTAnswer"
-        android:layout_width="300dp"
-        android:layout_height="202dp"
-        android:layout_marginTop="20dp"
+        android:id="@+id/eTQuestionTitle"
+        android:layout_width="294dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/input"
         android:ems="10"
         android:fontFamily="@font/red_hat_text_regular"
         android:gravity="start|top"
+        android:hint="@string/QuestionTitlePlaceholder"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eTTitle5" />
+
+    <EditText
+        android:id="@+id/eTQuestionDescription"
+        android:layout_width="300dp"
+        android:layout_height="202dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/input"
+        android:ems="10"
+        android:fontFamily="@font/red_hat_text_regular"
+        android:gravity="start|top"
+        android:hint="@string/QuestionDescriptionPlaceholder"
         android:inputType="textMultiLine"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
@@ -36,16 +58,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eTTitle3" />
+        app:layout_constraintTop_toBottomOf="@+id/eTTitle5" />
 
     <Button
-        android:id="@+id/btnSendAnswer"
+        android:id="@+id/btnSendNewQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eTAnswer" />
+        app:layout_constraintTop_toBottomOf="@+id/eTQuestionDescription" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
