@@ -46,7 +46,6 @@ public class MainScreen extends AppCompatActivity {
         TextView eTUsername = findViewById(R.id.eTUsernameMain);
         eTUsername.setText(getIntent().getStringExtra("name"));
         System.out.println("KEY A VER SI ESTA BIEN : " + preferences.getString(getString(R.string.sharedP),"PRVT"));
-
         tabLayout = findViewById(R.id.tabLayoutMain);
         viewPager = findViewById(R.id.pagerMain);
 

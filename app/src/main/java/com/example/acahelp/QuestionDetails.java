@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.acahelp.adapters.AnswerAdapter;
 import com.example.acahelp.interfaces.IAnswer;
 import com.example.acahelp.models.Answer;
+import com.example.acahelp.utilites.SpacingItemDecorator;
 
 import java.util.ArrayList;
 
@@ -59,7 +60,7 @@ public class QuestionDetails extends AppCompatActivity {
 
     private void getAnswers(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.66:4000")
+                .baseUrl("https://back.dylanlopez1.repl.co")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -72,6 +73,8 @@ public class QuestionDetails extends AppCompatActivity {
 
                 AnswerAdapter adapter = new AnswerAdapter(answers);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(30);
+                recyclerView.addItemDecoration(spacingItemDecorator);
                 recyclerView.setAdapter(adapter);
             }
 

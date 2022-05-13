@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#2135ED</color>
+    <color name="danger">#EF1E1E</color>
     <color name="username">#BEB9B9</color>
     <color name="inputHint">#D0D0D0</color>
 </resources>

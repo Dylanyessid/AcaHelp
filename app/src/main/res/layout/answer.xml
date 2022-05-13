@@ -14,7 +14,9 @@
         android:layout_width="330dp"
         android:layout_height="wrap_content"
 
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/red_hat_text_medium_italic"
         android:text="NAME"
         android:textAlignment="center"
@@ -27,30 +29,33 @@
 
     <TextView
         android:id="@+id/tVAnswer"
-        android:layout_width="319dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/red_hat_text_regular"
         android:text="ANSWER"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tVUsername" />
 
     <TextView
         android:id="@+id/tVScore"
-        android:layout_width="319dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/red_hat_text_regular"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/red_hat_text_semi_bold"
         android:text="SCORE"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tVAnswer" />
 

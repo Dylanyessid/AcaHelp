@@ -17,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.acahelp.interfaces.*;
 import com.example.acahelp.models.Question;
 import com.example.acahelp.models.User;
+import com.example.acahelp.utilites.Constants;
 
 import java.net.URISyntaxException;
 
@@ -35,11 +36,14 @@ public class MainActivity extends AppCompatActivity {
     private Socket socket;
     {
         try{
-            socket = IO.socket("http://192.168.1.66:4000");
+            socket = IO.socket(Constants.getURI());
+
         }catch (URISyntaxException e){
             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
+
+
     Button btnLogin, btnSignUp;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         User user = new User(eTEmail.getText().toString(), eTPass.getText().toString());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.66:4000")
+                .baseUrl(Constants.getURI())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

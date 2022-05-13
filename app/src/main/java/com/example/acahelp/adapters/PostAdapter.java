@@ -58,6 +58,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             title = itemView.findViewById(R.id.tVTitle);
             description = itemView.findViewById(R.id.tVDesc);
 
+            
             Button btnGoToQuestion = itemView.findViewById(R.id.btnLike);
             btnGoToQuestion.setOnClickListener(new View.OnClickListener() {
                 @Override

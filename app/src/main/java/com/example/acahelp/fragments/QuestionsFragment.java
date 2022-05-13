@@ -94,7 +94,7 @@ public class QuestionsFragment extends Fragment {
     private void getQuestions(){
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.66:4000")
+                .baseUrl("https://back.dylanlopez1.repl.co")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

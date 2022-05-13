@@ -11,11 +11,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerQuestions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="408dp"
+        android:layout_height="match_parent"
 
         android:clipToPadding="false"
         android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingTop="30dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

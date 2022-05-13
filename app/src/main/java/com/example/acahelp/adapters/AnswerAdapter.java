@@ -64,7 +64,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
 
         public void asignData(Answer answer) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.1.66:4000")
+                    .baseUrl("https://back.dylanlopez1.repl.co")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 

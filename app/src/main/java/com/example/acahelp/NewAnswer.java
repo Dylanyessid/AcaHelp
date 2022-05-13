@@ -47,7 +47,7 @@ public class NewAnswer extends AppCompatActivity {
     private void postAnswer(){
         Answer answer = new Answer(_id, preferences.getString(getString(R.string.sharedP),"PRVT"), eTAnswer.getText().toString());
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.66:4000")
+                .baseUrl("https://back.dylanlopez1.repl.co")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

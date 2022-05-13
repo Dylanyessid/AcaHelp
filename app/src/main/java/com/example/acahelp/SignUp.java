@@ -52,7 +52,7 @@ public class SignUp extends AppCompatActivity {
                     eTPass.getText().toString()
             );
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.1.66:4000")
+                    .baseUrl("https://back.dylanlopez1.repl.co")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -66,8 +66,9 @@ public class SignUp extends AppCompatActivity {
                         User res = response.body();
                         preferences = getApplicationContext().getSharedPreferences( getString(R.string.sharedP), Context.MODE_PRIVATE);
                         editor = preferences.edit();
-
                         editor.putString( getString(R.string.sharedP),res.getId());
+                        editor.apply();
+                        mainIntent.putExtra("name", res.getName() + " " + res.getSurname());
                         startActivity(mainIntent);
                     }
                 }

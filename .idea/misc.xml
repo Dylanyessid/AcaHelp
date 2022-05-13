@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/button.xml" value="0.18" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/buttonOptions.xml" value="0.21" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/buttonOptionsDanger.xml" value="0.105" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/input.xml" value="0.15" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/post.xml" value="0.25" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/font/fonts.xml" value="0.22" />
@@ -15,7 +17,7 @@
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/answer.xml" value="0.33" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/content_scrolling.xml" value="0.1" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_create_question.xml" value="0.33" />
-        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_questions.xml" value="0.18" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/post.xml" value="0.33" />
       </map>
