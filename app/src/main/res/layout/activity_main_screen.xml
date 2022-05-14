@@ -12,10 +12,15 @@
         android:layout_height="54dp"
 
 
-        android:background="@drawable/post"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/tab_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pagerMain"
         app:tabInlineLabel="true">
 
         <com.google.android.material.tabs.TabItem
@@ -41,6 +46,9 @@
         android:id="@+id/pagerMain"
         android:layout_width="414dp"
         android:layout_height="631dp"
+        android:layout_marginBottom="15dp"
+        android:isScrollContainer="true"
+        android:overScrollMode="always"
         app:layout_constraintBottom_toTopOf="@+id/tabLayoutMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

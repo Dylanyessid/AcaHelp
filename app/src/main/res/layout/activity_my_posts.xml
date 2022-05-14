@@ -4,23 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.QuestionsFragment">
-
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".MyPosts">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerQuestions"
-        android:layout_width="408dp"
-        android:layout_height="match_parent"
-
-        android:clipToPadding="false"
-        android:orientation="vertical"
+        android:id="@+id/recyclerMyPosts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
         android:paddingLeft="30dp"
-        android:paddingTop="30dp"
+        android:paddingTop="10dp"
         android:paddingRight="30dp"
-        android:paddingBottom="30dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

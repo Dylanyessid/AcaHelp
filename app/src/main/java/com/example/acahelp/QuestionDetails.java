@@ -33,7 +33,6 @@ public class QuestionDetails extends AppCompatActivity {
     Button btnAnswer;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +43,9 @@ public class QuestionDetails extends AppCompatActivity {
         eTTitle.setText(intent.getStringExtra("title"));
         eTDesc.setText(intent.getStringExtra("desc"));
         _id = (intent.getStringExtra("questionId"));
-        getAnswers();
         recyclerView = findViewById(R.id.recyclerAnswers);
+        getAnswers();
+
         btnAnswer = findViewById(R.id.btnAnswer);
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +70,6 @@ public class QuestionDetails extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                 answers = response.body();
-
                 AnswerAdapter adapter = new AnswerAdapter(answers);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(30);

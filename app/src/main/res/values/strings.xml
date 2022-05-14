@@ -110,8 +110,11 @@
     <string name="TitleQuestionFragment">Escribe una pregunta aquí y pulsa en el botón de Enviar.</string>
     <string name="QuestionTitlePlaceholder">Título de tu pregunta</string>
     <string name="QuestionDescriptionPlaceholder">Describe con mayor detalle tu pregunta</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="goToMyQuestions">Ver mis preguntas</string>
     <string name="goToMyAnswers">Ver mis respuestas</string>
     <string name="LogOut">Cerrar Sesión</string>
+    <string name="GoToQuestion">Ver pregunta</string>
+
+    <string name="SendQuestion">Enviar Pregunta</string>
 </resources>

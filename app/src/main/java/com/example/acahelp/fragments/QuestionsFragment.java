@@ -12,9 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.acahelp.R;
-import com.example.acahelp.adapters.PostAdapter;
+import com.example.acahelp.adapters.QuestionAdapter;
 import com.example.acahelp.interfaces.IQuestion;
 import com.example.acahelp.models.Question;
+import com.example.acahelp.utilites.SpacingItemDecorator;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,7 @@ public class QuestionsFragment extends Fragment {
     RecyclerView recyclerView;
     ArrayList<Question> questions;
     Call<ArrayList<Question>> call;
-    PostAdapter adapter;
+    QuestionAdapter adapter;
     SharedPreferences preferences;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -107,7 +108,9 @@ public class QuestionsFragment extends Fragment {
                 if(!response.isSuccessful()){
 
                 }
-                adapter= new PostAdapter(questions, getActivity().getApplicationContext());
+                adapter= new QuestionAdapter(questions, getActivity().getApplicationContext());
+                SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(30);
+                recyclerView.addItemDecoration(spacingItemDecorator);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 recyclerView.setAdapter(adapter);
 

@@ -79,7 +79,7 @@ public class CreateQuestionFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_create_question, container, false);
-        eTTitle =view.findViewById(R.id.eTTitle);
+        eTTitle =view.findViewById(R.id.eTQuestionTitle);
         eTDescription = view.findViewById(R.id.eTQuestionDescription);
         btnSendQuestion = view.findViewById(R.id.btnSendNewQuestion);
         preferences = getContext().getSharedPreferences( getString(R.string.sharedP), Context.MODE_PRIVATE);

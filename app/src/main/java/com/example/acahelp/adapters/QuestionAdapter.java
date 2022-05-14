@@ -17,11 +17,11 @@ import com.example.acahelp.models.Question;
 
 import java.util.ArrayList;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
+public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
 
     ArrayList<Question> listData;
     Context context;
-    public PostAdapter(ArrayList<Question> listData, Context context)
+    public QuestionAdapter(ArrayList<Question> listData, Context context)
     {
         this.listData = listData;
         this.context = context;
@@ -59,7 +59,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             description = itemView.findViewById(R.id.tVDesc);
 
             
-            Button btnGoToQuestion = itemView.findViewById(R.id.btnLike);
+            Button btnGoToQuestion = itemView.findViewById(R.id.btnGoToQuestion);
             btnGoToQuestion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

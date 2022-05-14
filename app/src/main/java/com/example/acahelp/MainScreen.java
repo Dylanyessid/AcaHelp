@@ -1,39 +1,25 @@
 package com.example.acahelp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.acahelp.adapters.PageController;
-import com.example.acahelp.adapters.PostAdapter;
-import com.example.acahelp.interfaces.IQuestion;
+import com.example.acahelp.adapters.QuestionAdapter;
 import com.example.acahelp.models.Question;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainScreen extends AppCompatActivity {
-
-    RecyclerView recyclerView;
-    ArrayList<Question> questions;
-    Call<ArrayList<Question>> call;
-    PostAdapter adapter;
     SharedPreferences preferences;
-     String _id;
      TabLayout tabLayout;
      ViewPager viewPager;
      PageController pageController;
