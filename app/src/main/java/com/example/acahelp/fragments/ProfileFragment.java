@@ -1,5 +1,6 @@
 package com.example.acahelp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Spinner;
 
+import com.example.acahelp.MyPosts;
 import com.example.acahelp.R;
 
 /**
@@ -62,6 +65,25 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        Button btnGoToMyQuestions = view.findViewById(R.id.btnGoToMyQuestions);
+        Button btnGoToMyAnswers = view.findViewById(R.id.btnGoToMyAnswers);
+        Button btnGoToPremiumQuestions = view.findViewById(R.id.btnGoToPremiumQuestions);
+        btnGoToMyQuestions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), MyPosts.class);
+                intent.putExtra("type", "questions");
+                startActivity(intent);
+            }
+        });
+        btnGoToMyAnswers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), MyPosts.class);
+                intent.putExtra("type", "answers");
+                startActivity(intent);
+            }
+        });
 
 
         return view ;

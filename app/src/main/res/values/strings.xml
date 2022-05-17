@@ -6,6 +6,7 @@
     <string name="main">Principal</string>
     <string name="ask">Preguntar</string>
     <string name="profile">Perfil</string>
+    <string name="premiumQuestions">Premium</string>
     <string name="answersTitle">Respuestas:</string>
     <string name="like">Like</string>
     <string name="dislike">Dislike</string>
@@ -117,4 +118,8 @@
     <string name="GoToQuestion">Ver pregunta</string>
 
     <string name="SendQuestion">Enviar Pregunta</string>
+
+    <string name="GoToPremiumQuestions">Mis Preguntas Premium</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="NoQualifiedMessage">No estás actualmente cualificado para responder preguntas premium. Si deseas, puedes enviarnos una solicitud para serlo</string>
 </resources>

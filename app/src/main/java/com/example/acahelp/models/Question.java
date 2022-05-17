@@ -1,12 +1,8 @@
 package com.example.acahelp.models;
 
 public class Question {
-    private String _id;
-
-
-
-    private String user;
-
+    private String _id,user;
+    private String userInfo;
     private String title;
     private String description;
 

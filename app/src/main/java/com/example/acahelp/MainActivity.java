@@ -2,6 +2,7 @@ package com.example.acahelp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -44,14 +45,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    UiModeManager uiModeManager;
     Button btnLogin, btnSignUp;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
 
         socket.connect();
         btnSignUp = findViewById(R.id.btnGoToSignUp);

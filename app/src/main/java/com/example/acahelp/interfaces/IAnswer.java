@@ -1,6 +1,7 @@
 package com.example.acahelp.interfaces;
 
 import com.example.acahelp.models.Answer;
+import com.example.acahelp.models.Question;
 
 
 import java.util.ArrayList;
@@ -17,4 +18,7 @@ public interface IAnswer {
 
     @POST("answers/createAnswer")
     Call<Answer> postAnswer(@Body Answer answer);
+
+    @GET("answers/getUserAnswers/{user}")
+    Call<ArrayList<Answer>> getUserAnswers(@Path("user") String user);
 }

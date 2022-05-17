@@ -49,7 +49,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView title;
+        TextView title, user;
         TextView description;
         String id;
 
@@ -57,7 +57,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             super(itemView);
             title = itemView.findViewById(R.id.tVTitle);
             description = itemView.findViewById(R.id.tVDesc);
-
+            user = itemView.findViewById(R.id.tVUserQuestion);
             
             Button btnGoToQuestion = itemView.findViewById(R.id.btnGoToQuestion);
             btnGoToQuestion.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +77,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         public void asignData(Question question) {
             title.setText(question.getTitle());
             description.setText(question.getDescription());
+            //user.setText(question.getUser());
              id= question.getId();
         }
     }

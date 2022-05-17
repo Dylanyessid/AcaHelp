@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:nestedScrollingEnabled="true"
+    android:overScrollMode="always"
     tools:context=".MainScreen">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayoutMain"
-        android:layout_width="402dp"
-        android:layout_height="54dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
 
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="3dp"
         android:background="@drawable/tab_bar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pagerMain"
-        app:tabInlineLabel="true">
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabInlineLabel="false">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -40,36 +40,38 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/red_hat_text_bold"
             android:text="@string/profile" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/premiumQuestions" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pagerMain"
-        android:layout_width="414dp"
-        android:layout_height="631dp"
-        android:layout_marginBottom="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:isScrollContainer="true"
         android:overScrollMode="always"
-        app:layout_constraintBottom_toTopOf="@+id/tabLayoutMain"
+        android:paddingBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eTUsernameMain"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayoutMain"
         app:layout_constraintVertical_bias="0.0">
 
-    </androidx.viewpager.widget.ViewPager>
+        <TextView
+            android:id="@+id/eTUsernameMain"
+            android:layout_width="365dp"
+            android:layout_height="39dp"
+            android:fontFamily="@font/red_hat_text_medium"
+            android:text="username"
+            android:textSize="32sp" />
 
-    <TextView
-        android:id="@+id/eTUsernameMain"
-        android:layout_width="365dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/red_hat_text_medium"
-        android:text="username"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/pagerMain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </androidx.viewpager.widget.ViewPager>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
