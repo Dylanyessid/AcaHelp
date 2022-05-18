@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.acahelp.PremiumRequest;
+import com.example.acahelp.fragments.PremiumRequest;
 import com.example.acahelp.fragments.CreateQuestionFragment;
 import com.example.acahelp.fragments.ProfileFragment;
 import com.example.acahelp.fragments.QuestionsFragment;

@@ -8,6 +8,7 @@
     <string name="profile">Perfil</string>
     <string name="premiumQuestions">Premium</string>
     <string name="answersTitle">Respuestas:</string>
+    <string name="loginMessage">¿No tienes una cuenta?\n¡Regístrate ahora!</string>
     <string name="like">Like</string>
     <string name="dislike">Dislike</string>
     <string name="answer">Escribe tu respuesta aquí y presiona el botón de enviar respuesta.</string>
@@ -111,6 +112,9 @@
     <string name="TitleQuestionFragment">Escribe una pregunta aquí y pulsa en el botón de Enviar.</string>
     <string name="QuestionTitlePlaceholder">Título de tu pregunta</string>
     <string name="QuestionDescriptionPlaceholder">Describe con mayor detalle tu pregunta</string>
+    <string name="isPrivate">Pregunta privada</string>
+    <string name="areaPlaceholder">Selecciona el área de tu pregunta</string>
+    <string name="areaWarning">Si no aparecen áreas disponibles, significa que no hay usuarios cualificados que te puedan ayudar. En ese caso, mejor haz un pregunta abierta</string>
 
     <string name="goToMyQuestions">Ver mis preguntas</string>
     <string name="goToMyAnswers">Ver mis respuestas</string>
@@ -122,4 +126,7 @@
     <string name="GoToPremiumQuestions">Mis Preguntas Premium</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="NoQualifiedMessage">No estás actualmente cualificado para responder preguntas premium. Si deseas, puedes enviarnos una solicitud para serlo</string>
+
+    <string name="addArea">Agregar area</string>
+    <string name="deleteArea">Eliminar</string>
 </resources>

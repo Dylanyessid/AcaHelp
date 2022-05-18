@@ -1,12 +1,23 @@
-package com.example.acahelp;
+package com.example.acahelp.fragments;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.acahelp.R;
+import com.example.acahelp.adapters.AreaAdapter;
+import com.example.acahelp.utilites.SpacingItemDecorator;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +30,7 @@ public class PremiumRequest extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static ArrayList<String> areas;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -58,7 +70,28 @@ public class PremiumRequest extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_premium_request, container, false);
+
+        areas = new ArrayList<String>();
+        View view = inflater.inflate(R.layout.fragment_premium_request, container, false);
+
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerAreas);
+        Button addArea = view.findViewById(R.id.btnAddArea);
+        EditText area = view.findViewById(R.id.eTOtherArea);
+        SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(30);
+        recyclerView.addItemDecoration(spacingItemDecorator);
+        addArea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(areas.size()<=5){
+                    areas.add(area.getText().toString());
+                    AreaAdapter adapter = new AreaAdapter(areas);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    recyclerView.setAdapter(adapter);
+                }else{
+                    Toast.makeText(getContext(),"No puedes asignarte más de 5 áreas diferentes.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        return view;
     }
 }

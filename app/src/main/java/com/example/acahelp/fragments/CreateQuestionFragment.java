@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.acahelp.R;
@@ -33,6 +34,7 @@ public class CreateQuestionFragment extends Fragment {
     private EditText eTTitle, eTDescription;
     private SharedPreferences preferences;
     private Button btnSendQuestion;
+    Switch privateQuestionSwitch;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,6 +84,7 @@ public class CreateQuestionFragment extends Fragment {
         eTTitle =view.findViewById(R.id.eTQuestionTitle);
         eTDescription = view.findViewById(R.id.eTQuestionDescription);
         btnSendQuestion = view.findViewById(R.id.btnSendNewQuestion);
+        privateQuestionSwitch= view.findViewById(R.id.switchPrivateQuestion);
         preferences = getContext().getSharedPreferences( getString(R.string.sharedP), Context.MODE_PRIVATE);
         btnSendQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +103,10 @@ public class CreateQuestionFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        Question question = new Question(eTTitle.getText().toString(),eTDescription.getText().toString(), preferences.getString(getString(R.string.sharedP),"PRVT"));
+        Question question = new Question(eTTitle.getText().toString(),
+                eTDescription.getText().toString(),
+                preferences.getString(getString(R.string.sharedP),"PRVT"),
+                privateQuestionSwitch.isChecked());
         IQuestion IQuestion = retrofit.create(IQuestion.class);
         Call<Question> call = IQuestion.postNewQuestion(question);
         call.enqueue(new Callback<Question>() {
@@ -109,6 +115,7 @@ public class CreateQuestionFragment extends Fragment {
                 if(response.code()==200){
                     Toast.makeText(getContext(), "Pregunta formulada y enviada con éxito", Toast.LENGTH_LONG).show();
                 }
+
             }
 
             @Override

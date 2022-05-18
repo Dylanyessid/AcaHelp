@@ -26,13 +26,26 @@
         android:layout_height="66dp"
         android:layout_marginEnd="100dp"
         android:fontFamily="@font/red_hat_text_bold"
-        android:text="@string/app_name"
+        android:text="@string/login"
         android:textColor="#000000"
         android:textSize="52sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="288dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/red_hat_text_regular"
+        android:text="@string/loginMessage"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -91,12 +104,12 @@
         android:id="@+id/btnGoToSignUp"
         android:layout_width="127dp"
         android:layout_height="57dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/button"
         android:text="@string/register"
         android:theme="@style/ButtonBlue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

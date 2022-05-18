@@ -5,6 +5,15 @@ public class Question {
     private String userInfo;
     private String title;
     private String description;
+    private boolean isPrivate;
+
+    public boolean isPrivate() {
+        return isPrivate;
+    }
+
+    public void setPrivate(boolean aPrivate) {
+        isPrivate = aPrivate;
+    }
 
     public String getId() {
         return _id;
@@ -34,9 +43,10 @@ public class Question {
         this.description = description;
     }
 
-    public Question(String title, String description, String user) {
+    public Question(String title, String description, String user, boolean isPrivate) {
         this.user = user;
         this.title = title;
         this.description = description;
+        this.isPrivate = isPrivate;
     }
 }
