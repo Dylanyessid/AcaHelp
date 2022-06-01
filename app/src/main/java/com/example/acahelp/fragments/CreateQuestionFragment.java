@@ -1,23 +1,45 @@
 package com.example.acahelp.fragments;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.FileUtils;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.acahelp.R;
 import com.example.acahelp.interfaces.IQuestion;
 import com.example.acahelp.models.Question;
+import com.example.acahelp.utilites.Constants;
 
+import java.io.File;
+import java.net.ResponseCache;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,9 +54,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class CreateQuestionFragment extends Fragment {
 
     private EditText eTTitle, eTDescription;
+    private TextView tVWarningArea, tVAreaTitle;
     private SharedPreferences preferences;
-    private Button btnSendQuestion;
+    private ImageView imageView;
+    private Uri filePath;
+    private Button btnSendQuestion, btnAddFile, btnTakePhoto;
     Switch privateQuestionSwitch;
+    private Spinner questionArea;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,47 +107,100 @@ public class CreateQuestionFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_create_question, container, false);
+
+        tVAreaTitle = view.findViewById(R.id.tVAreaTitle);
+        tVWarningArea = view.findViewById(R.id.tVWarningArea);
+        questionArea = view.findViewById(R.id.spinnerQuestionArea);
         eTTitle =view.findViewById(R.id.eTQuestionTitle);
         eTDescription = view.findViewById(R.id.eTQuestionDescription);
+
         btnSendQuestion = view.findViewById(R.id.btnSendNewQuestion);
+
         privateQuestionSwitch= view.findViewById(R.id.switchPrivateQuestion);
         preferences = getContext().getSharedPreferences( getString(R.string.sharedP), Context.MODE_PRIVATE);
+        privateQuestionSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(!privateQuestionSwitch.isChecked()){
+
+
+                    tVWarningArea.setVisibility(View.GONE);
+                    questionArea.setVisibility(View.GONE);
+                    tVAreaTitle.setVisibility(View.GONE);
+                }else{
+
+                    questionArea.setVisibility(View.VISIBLE);
+                    tVAreaTitle.setVisibility(View.VISIBLE);
+
+                    tVWarningArea.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
         btnSendQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 postNewQuestion();
             }
         });
+
         // Inflate the layout for this fragment
         return view;
     }
 
     private void postNewQuestion(){
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://back.dylanlopez1.repl.co")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
         Question question = new Question(eTTitle.getText().toString(),
                 eTDescription.getText().toString(),
                 preferences.getString(getString(R.string.sharedP),"PRVT"),
                 privateQuestionSwitch.isChecked());
-        IQuestion IQuestion = retrofit.create(IQuestion.class);
-        Call<Question> call = IQuestion.postNewQuestion(question);
-        call.enqueue(new Callback<Question>() {
-            @Override
-            public void onResponse(Call<Question> call, Response<Question> response) {
-                if(response.code()==200){
-                    Toast.makeText(getContext(), "Pregunta formulada y enviada con éxito", Toast.LENGTH_LONG).show();
+        IQuestion IQuestion = Constants.retrofit.create(IQuestion.class);
+
+        if(!privateQuestionSwitch.isChecked()){
+
+            Call<Question> call = IQuestion.postNewQuestion(question);
+            call.enqueue(new Callback<Question>() {
+                @Override
+                public void onResponse(Call<Question> call, Response<Question> response) {
+                    if(response.code()==200){
+                        Toast.makeText(getContext(), "Pregunta formulada y enviada con éxito", Toast.LENGTH_LONG).show();
+                    }
+
                 }
 
-            }
+                @Override
+                public void onFailure(Call<Question> call, Throwable t) {
 
-            @Override
-            public void onFailure(Call<Question> call, Throwable t) {
 
-            }
-        });
+                }
+            });
+        }else{
+
+            Call<Question> call = IQuestion.postNewQuestion(question);
+            call.enqueue(new Callback<Question>() {
+                @Override
+                public void onResponse(Call<Question> call, Response<Question> response) {
+                    switch (response.code()){
+                        case 200:
+                            Toast.makeText(getContext(), "Pregunta formulada y enviada con éxito", Toast.LENGTH_LONG).show();
+                            break;
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Question> call, Throwable t) {
+
+                }
+            });
+
+        }
+
+
     }
+
+
+
+
+
 }

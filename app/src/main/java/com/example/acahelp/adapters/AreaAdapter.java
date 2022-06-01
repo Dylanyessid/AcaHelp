@@ -48,7 +48,6 @@ public class AreaAdapter extends RecyclerView.Adapter<AreaAdapter.ViewHolder>{
                 public void onClick(View view) {
                     areas.remove(getLayoutPosition());
                     notifyItemRemoved(getLayoutPosition());
-
                     System.out.println("VEAMOS " + getLayoutPosition());
                 }
             });

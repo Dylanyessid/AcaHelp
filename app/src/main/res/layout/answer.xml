@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="20dp"
+    android:background="@drawable/post"
     android:paddingLeft="10dp"
+    android:paddingTop="20dp"
     android:paddingRight="10dp"
-    android:background="@drawable/post">
+    android:paddingBottom="20dp">
 
     <TextView
         android:id="@+id/tVUsername"
@@ -63,23 +64,56 @@
         android:id="@+id/btnLike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="36dp"
-        android:text="Button"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_like_background"
+        android:fontFamily="@font/red_hat_text_medium"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:text="+1"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tVScore" />
+        app:layout_constraintTop_toBottomOf="@+id/tVScore"
+        app:layout_constraintVertical_bias="0.2" />
 
     <Button
         android:id="@+id/btnDislike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_dislike_background"
+        android:fontFamily="@font/red_hat_text_medium"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:text="-1"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.223"
-        app:layout_constraintStart_toEndOf="@+id/btnLike"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnRemoveScore"
         app:layout_constraintTop_toBottomOf="@+id/tVScore"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnRemoveScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_null_background"
+        android:fontFamily="@font/red_hat_text_bold"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:text="@string/deleteScore"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnLike"
+        app:layout_constraintTop_toBottomOf="@+id/tVScore"
+        app:layout_constraintVertical_bias="0.964" />
 </androidx.constraintlayout.widget.ConstraintLayout>

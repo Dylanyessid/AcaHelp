@@ -14,6 +14,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:isScrollContainer="true"
+        android:nestedScrollingEnabled="true"
+        android:overScrollMode="always"
         android:paddingBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="28dp"
+                android:layout_marginBottom="70dp"
                 android:background="@drawable/button_options"
                 android:fontFamily="@font/red_hat_text_medium"
                 android:text="@string/SendQuestion"
@@ -38,13 +41,13 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/tVWarningArea" />
 
             <EditText
                 android:id="@+id/eTQuestionDescription"
-                android:layout_width="300dp"
-                android:layout_height="202dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="303dp"
+                android:layout_height="215dp"
+                android:layout_marginTop="12dp"
                 android:background="@drawable/input"
                 android:ems="10"
                 android:fontFamily="@font/red_hat_text_regular"
@@ -56,13 +59,14 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.435"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eTQuestionTitle" />
 
             <TextView
                 android:id="@+id/eTTitle5"
-                android:layout_width="343dp"
-                android:layout_height="wrap_content"
+                android:layout_width="336dp"
+                android:layout_height="103dp"
                 android:layout_marginTop="68dp"
                 android:fontFamily="@font/red_hat_text_semi_bold"
                 android:text="@string/TitleQuestionFragment"
@@ -76,7 +80,7 @@
                 android:id="@+id/eTQuestionTitle"
                 android:layout_width="294dp"
                 android:layout_height="76dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/input"
                 android:ems="10"
                 android:fontFamily="@font/red_hat_text_regular"
@@ -87,7 +91,7 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.529"
+                app:layout_constraintHorizontal_bias="0.393"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eTTitle5" />
 
@@ -95,7 +99,7 @@
                 android:id="@+id/switchPrivateQuestion"
                 android:layout_width="182dp"
                 android:layout_height="59dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="28dp"
                 android:fontFamily="@font/red_hat_text_medium"
                 android:text="@string/isPrivate"
                 android:textAlignment="center"
@@ -113,13 +117,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.544"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/tVAreaTitle" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tVAreaTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/red_hat_text_medium_italic"
                 android:text="@string/QuestionDescriptionPlaceholder"
                 android:textSize="16sp"
@@ -128,7 +132,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/switchPrivateQuestion" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tVWarningArea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"

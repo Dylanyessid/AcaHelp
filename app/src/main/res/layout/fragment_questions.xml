@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="20dp"
     tools:context=".fragments.QuestionsFragment">
 
 
@@ -14,12 +15,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:layout_marginBottom="40dp"
         android:clipToPadding="false"
+        android:isScrollContainer="true"
+        android:nestedScrollingEnabled="true"
         android:orientation="vertical"
+        android:overScrollMode="always"
         android:paddingLeft="30dp"
         android:paddingTop="30dp"
         android:paddingRight="30dp"
         android:paddingBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

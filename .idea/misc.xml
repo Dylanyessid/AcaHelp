@@ -4,17 +4,27 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/area_background.xml" value="0.21" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/blue_button_background.xml" value="0.21" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/button.xml" value="0.18" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/buttonOptions.xml" value="0.21" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/buttonOptionsDanger.xml" value="0.105" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/button_dislike_background.xml" value="0.21" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/button_like_background.xml" value="0.21" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/button_null_background.xml" value="0.21" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/button_options.xml" value="0.1735" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/button_options_danger.xml" value="0.21" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/image_view_background.xml" value="0.161" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/input.xml" value="0.15" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/post.xml" value="0.25" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/premium_message.xml" value="0.21" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/premium_message_background.xml" value="0.21" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/premium_post.xml" value="0.169" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/drawable/tabBar.xml" value="0.1735" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/font/fonts.xml" value="0.22" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_main_screen.xml" value="0.28278041074249605" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_main_screen.xml" value="0.18" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_my_posts.xml" value="0.16458333333333333" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_my_premium_questions.xml" value="0.1" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_my_questions.xml" value="0.182518115942029" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_new_answer.xml" value="0.22" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/activity_question_details.xml" value="0.29489291598023065" />
@@ -22,12 +32,16 @@
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/answer.xml" value="0.33" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/area.xml" value="0.22" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/content_scrolling.xml" value="0.1" />
-        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_create_question.xml" value="0.27804107424960506" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_create_question.xml" value="0.19806763285024154" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_premium.xml" value="0.1" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_premium_questions.xml" value="0.1" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_premium_request.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_questions.xml" value="0.18" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/fragment_waiting.xml" value="0.25" />
         <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/post.xml" value="0.33" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/premium_message.xml" value="0.33" />
+        <entry key="..\:/Users/Dylan Lopez/AndroidStudioProjects/AcaHelp/app/src/main/res/layout/premium_question.xml" value="0.1" />
       </map>
     </option>
   </component>

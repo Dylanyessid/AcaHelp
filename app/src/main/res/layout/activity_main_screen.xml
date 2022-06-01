@@ -6,7 +6,22 @@
     android:layout_height="match_parent"
     android:nestedScrollingEnabled="true"
     android:overScrollMode="always"
+    android:padding="5dp"
     tools:context=".MainScreen">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/red_hat_text_bold"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="56sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayoutMain"
@@ -15,12 +30,12 @@
 
 
         android:layout_marginStart="3dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="3dp"
         android:background="@drawable/tab_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:tabInlineLabel="false">
 
         <com.google.android.material.tabs.TabItem
@@ -50,28 +65,19 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pagerMain"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
         android:isScrollContainer="true"
+        android:nestedScrollingEnabled="true"
         android:overScrollMode="always"
-        android:paddingBottom="40dp"
+        android:paddingBottom="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabLayoutMain"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            android:id="@+id/eTUsernameMain"
-            android:layout_width="365dp"
-            android:layout_height="39dp"
-            android:fontFamily="@font/red_hat_text_medium"
-            android:text="username"
-            android:textSize="32sp" />
-
-    </androidx.viewpager.widget.ViewPager>
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

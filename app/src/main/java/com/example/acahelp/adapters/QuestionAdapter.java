@@ -13,9 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.acahelp.QuestionDetails;
 import com.example.acahelp.R;
+import com.example.acahelp.interfaces.userAPI;
 import com.example.acahelp.models.Question;
+import com.example.acahelp.models.User;
+import com.example.acahelp.utilites.Constants;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
 
@@ -68,7 +75,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
                     intent.putExtra("questionId", id);
                     intent.putExtra("title", title.getText().toString());
                     intent.putExtra("desc", description.getText().toString());
-                    System.out.println(description.getText().toString());
+                    intent.putExtra("isPrivate", false);
                     context.startActivity(intent);
                 }
             });
@@ -77,8 +84,24 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         public void asignData(Question question) {
             title.setText(question.getTitle());
             description.setText(question.getDescription());
-            //user.setText(question.getUser());
-             id= question.getId();
+            id= question.getId();
+            getUserName(question.getUser(), user);
         }
+    }
+
+    private void getUserName(String user, TextView userName){
+        userAPI userApi = Constants.retrofit.create(userAPI.class);
+        Call<User> call = userApi.getUserName(user);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                userName.setText(response.body().getName() + " "+ response.body().getSurname());
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                userName.setText(null);
+            }
+        });
     }
 }

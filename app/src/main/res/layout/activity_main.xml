@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="223dp"
         android:layout_height="66dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginEnd="156dp"
         android:fontFamily="@font/red_hat_text_bold"
         android:text="@string/app_name"
         android:textColor="#000000"
@@ -24,15 +24,14 @@
         android:id="@+id/textView"
         android:layout_width="223dp"
         android:layout_height="66dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/red_hat_text_bold"
         android:text="@string/login"
         android:textColor="#000000"
         android:textSize="52sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/textView7"
@@ -49,13 +48,14 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="87dp"
+        android:layout_width="409dp"
+        android:layout_height="89dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/input"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:titleMargin="52sp" />
@@ -92,10 +92,13 @@
         android:id="@+id/btnLogin"
         android:layout_width="127dp"
         android:layout_height="57dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button_like_background"
+        android:fontFamily="@font/red_hat_text_medium"
         android:text="@string/login"
-        android:theme="@style/ButtonBlue"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eTPass" />
@@ -105,9 +108,12 @@
         android:layout_width="127dp"
         android:layout_height="57dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/button"
+        android:background="@drawable/blue_button_background"
+        android:fontFamily="@font/red_hat_text_medium"
         android:text="@string/register"
-        android:theme="@style/ButtonBlue"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />

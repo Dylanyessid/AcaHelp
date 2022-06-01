@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/premium_post"
+    android:paddingStart="20dp"
+    android:paddingTop="40dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="40dp">
+
+    <TextView
+        android:id="@+id/tVPremiumQuestionTitle"
+        android:layout_width="200dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/red_hat_text_bold"
+        android:text="Title"
+        android:textAlignment="center"
+        android:textColor="@color/green"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tVPremiumQuestionAuthor"
+        android:layout_width="185dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/red_hat_text_bold"
+        android:text="AUTOR"
+        android:textAlignment="center"
+        android:textColor="@color/username"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tVPremiumQuestionTitle" />
+
+    <TextView
+        android:id="@+id/tVPremiumQuestionArea"
+        android:layout_width="191dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/red_hat_text_medium_italic"
+        android:text="AREA"
+        android:textAlignment="center"
+        android:textColor="@color/username"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tVPremiumQuestionAuthor" />
+
+    <Button
+        android:id="@+id/btnGoToPremiumQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_options"
+        android:fontFamily="@font/red_hat_text_medium"
+        android:padding="5dp"
+        android:paddingStart="5dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:text="@string/GoToQuestion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tVPremiumQuestionArea" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

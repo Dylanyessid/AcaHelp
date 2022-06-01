@@ -1,11 +1,37 @@
 package com.example.acahelp.models;
 
+import java.util.ArrayList;
+
 public class Question {
     private String _id,user;
-    private String userInfo;
+    private String fileUri;
     private String title;
     private String description;
+    private ArrayList<String> areas;
     private boolean isPrivate;
+    private String designedUser;
+
+    public ArrayList<String> getAreas() {
+        return areas;
+    }
+
+    public String getDesignedUser() {
+        return designedUser;
+    }
+
+
+
+    public void setAreas(ArrayList<String> areas) {
+        this.areas = areas;
+    }
+
+    public String getFileUri() {
+        return fileUri;
+    }
+
+    public void setFileUri(String fileUri) {
+        this.fileUri = fileUri;
+    }
 
     public boolean isPrivate() {
         return isPrivate;
@@ -49,4 +75,5 @@ public class Question {
         this.description = description;
         this.isPrivate = isPrivate;
     }
+
 }
