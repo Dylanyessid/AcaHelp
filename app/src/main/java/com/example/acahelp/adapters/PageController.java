@@ -84,7 +84,7 @@ public class PageController extends FragmentPagerAdapter {
                         }
                         return new PremiumRequest();
                     }else{
-                        return new PremiumQuestions();
+                        return new PremiumQuestions(userRequest);
                     }
                 }else{
                     return new PremiumRequest();

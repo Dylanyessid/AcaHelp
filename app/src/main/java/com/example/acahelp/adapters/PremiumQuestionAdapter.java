@@ -13,9 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.acahelp.QuestionDetails;
 import com.example.acahelp.R;
+import com.example.acahelp.interfaces.IQuestion;
+import com.example.acahelp.interfaces.userAPI;
 import com.example.acahelp.models.Question;
+import com.example.acahelp.models.User;
+import com.example.acahelp.utilites.Constants;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class PremiumQuestionAdapter extends RecyclerView.Adapter<PremiumQuestionAdapter.ViewHolder> {
 
@@ -51,20 +60,23 @@ public class PremiumQuestionAdapter extends RecyclerView.Adapter<PremiumQuestion
 
         TextView title, user;
         TextView area;
-        String id;
+        String id,desc, user_id;
+        Button btnGoToQuestion;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.tVPremiumQuestionTitle);
              area= itemView.findViewById(R.id.tVPremiumQuestionArea);
             user = itemView.findViewById(R.id.tVPremiumQuestionAuthor);
-
-            Button btnGoToQuestion = itemView.findViewById(R.id.btnGoToPremiumQuestion);
+            btnGoToQuestion = itemView.findViewById(R.id.btnGoToPremiumQuestion);
+            btnGoToQuestion.setVisibility(View.GONE);
             btnGoToQuestion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, QuestionDetails.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra("questionId", id);
+                    intent.putExtra("user", user_id);
+                    intent.putExtra("desc", desc);
                     intent.putExtra("title", title.getText().toString());
                     intent.putExtra("area", area.getText().toString());
                     intent.putExtra("isPrivate", true);
@@ -75,8 +87,30 @@ public class PremiumQuestionAdapter extends RecyclerView.Adapter<PremiumQuestion
         }
 
         public void asignData(Question question) {
+            getAuthor(question.getUser());
             title.setText(question.getTitle());
+            area.setText(question.getArea());
             id= question.getId();
+            desc = question.getDescription();
+            user_id = question.getUser();
+            btnGoToQuestion.setVisibility(View.VISIBLE);
+        }
+        private void getAuthor(String id){
+            userAPI userAPI = Constants.retrofit.create(userAPI.class);
+            Call<User> call = userAPI.getUserName(id);
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    user.setText(response.body().getName() + " " + response.body().getSurname());
+                }
+
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+
+                }
+            });
         }
     }
+
+
 }

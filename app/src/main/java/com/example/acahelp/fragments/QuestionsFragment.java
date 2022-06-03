@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.acahelp.R;
 import com.example.acahelp.adapters.QuestionAdapter;
@@ -37,6 +38,7 @@ public class QuestionsFragment extends Fragment {
     private ArrayList<Question> questions;
     private Call<ArrayList<Question>> call;
     private QuestionAdapter adapter;
+    private TextView tVNoQuestions;
     private SharedPreferences preferences;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,7 +77,10 @@ public class QuestionsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_questions, container, false);
+        
         recyclerView= view.findViewById(R.id.recyclerQuestions);
+        tVNoQuestions = view.findViewById(R.id.tVNoQuestions);
+        tVNoQuestions.setVisibility(View.GONE);
         getQuestions();
         return view;
     }
@@ -90,6 +95,10 @@ public class QuestionsFragment extends Fragment {
                 questions = response.body();
                 if(!response.isSuccessful()){
 
+                }
+                if(questions.size()==0){
+                    tVNoQuestions.setVisibility(View.VISIBLE);
+                    return;
                 }
                 adapter= new QuestionAdapter(questions, getActivity().getApplicationContext());
                 SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(30);

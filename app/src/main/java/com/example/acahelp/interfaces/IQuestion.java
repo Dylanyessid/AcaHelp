@@ -23,9 +23,14 @@ public interface IQuestion {
     @GET("questions/getQuestions")
     Call<ArrayList<Question>> getQuestions();
 
-    @GET("questions/getPrivateQuestions/{user}")
-    Call<ArrayList<Question>> getPrivateQuestions(@Path("user") String user);
+    @GET("questions/getPrivateQuestions/{user}/{area}")
+    Call<ArrayList<Question>> getPrivateQuestions(@Path("user") String user, @Path("area") String area);
 
+    @GET("questions/getQuestion/{question}")
+    Call<Question> getQuestion(@Path("question") String question);
+
+    @GET("questions/getAssignedQuestions/{user}")
+    Call<ArrayList<Question>> getAssignedQuestions(@Path("user") String user);
 
     @POST("questions/createNewQuestion")
     Call<Question> postNewQuestion(@Body Question question);

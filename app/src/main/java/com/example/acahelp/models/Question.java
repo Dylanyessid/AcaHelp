@@ -7,22 +7,20 @@ public class Question {
     private String fileUri;
     private String title;
     private String description;
-    private ArrayList<String> areas;
+    private String area;
     private boolean isPrivate;
     private String designedUser;
 
-    public ArrayList<String> getAreas() {
-        return areas;
+    public String getArea() {
+        return area;
     }
 
     public String getDesignedUser() {
         return designedUser;
     }
 
-
-
-    public void setAreas(ArrayList<String> areas) {
-        this.areas = areas;
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public String getFileUri() {

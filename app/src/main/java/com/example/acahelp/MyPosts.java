@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.acahelp.adapters.AnswerAdapter;
+import com.example.acahelp.adapters.MyAnswerAdapter;
 import com.example.acahelp.adapters.QuestionAdapter;
 import com.example.acahelp.interfaces.IAnswer;
 import com.example.acahelp.interfaces.IQuestion;
@@ -59,7 +60,7 @@ public class MyPosts extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                 ArrayList<Answer> answers = response.body();
-                AnswerAdapter adapter = new AnswerAdapter(answers);
+                MyAnswerAdapter adapter = new MyAnswerAdapter(answers, getApplicationContext());
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(30);
                 recyclerView.addItemDecoration(spacingItemDecorator);
@@ -80,9 +81,7 @@ public class MyPosts extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
                 ArrayList<Question> questions = response.body();
-                if(!response.isSuccessful()){
 
-                }
                 QuestionAdapter adapter= new QuestionAdapter(questions, getApplicationContext());
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 recyclerView.setAdapter(adapter);

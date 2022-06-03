@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.acahelp.R;
@@ -41,7 +42,7 @@ public class PremiumRequest extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static ArrayList<String> areas;
+    private static ArrayList<String> areas = new ArrayList<String>();
     private Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(Constants.getURI())
             .addConverterFactory(GsonConverterFactory.create())
@@ -51,9 +52,14 @@ public class PremiumRequest extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Request request;
 
     public PremiumRequest() {
         // Required empty public constructor
+    }
+
+    public PremiumRequest(Request request){
+        this.request = request;
     }
 
     /**
@@ -88,13 +94,12 @@ public class PremiumRequest extends Fragment {
                              Bundle savedInstanceState) {
 
         preferences = getContext().getSharedPreferences( getString(R.string.sharedP), Context.MODE_PRIVATE);
-        areas = new ArrayList<String>();
         View view = inflater.inflate(R.layout.fragment_premium_request, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerAreas);
         Button addArea = view.findViewById(R.id.btnAddArea);
         Button sendRequest = view.findViewById(R.id.btnSendRequest);
-        EditText area = view.findViewById(R.id.eTArea);
+        Spinner area = view.findViewById(R.id.spinnerAreaRequest);
         SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(30);
         recyclerView.addItemDecoration(spacingItemDecorator);
 
@@ -128,25 +133,24 @@ public class PremiumRequest extends Fragment {
         addArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if(areas.size()<5){
-                    if(areas.contains(area.getText().toString())){
-                        Toast.makeText(getContext(),"Ya tienes agregada el área de: " + area.getText().toString(), Toast.LENGTH_SHORT).show();
+                if(areas.size()<3){
+                    if(areas.contains(area.getSelectedItem().toString())){
+                        Toast.makeText(getContext(),"Ya tienes agregada el área de: " + area.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
 
                     }
                     else{
-                        areas.add(area.getText().toString());
+                        areas.add(area.getSelectedItem().toString());
                         AreaAdapter adapter = new AreaAdapter(areas);
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         adapter.notifyItemInserted((areas.size()-1));
                         recyclerView.setAdapter(adapter);
-                        Toast.makeText(getContext(),area.getText().toString() + " agregado con éxito.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),area.getSelectedItem().toString() + " agregado con éxito.", Toast.LENGTH_SHORT).show();
 
 
                     }
 
                 }else{
-                    Toast.makeText(getContext(),"No puedes asignarte más de 5 áreas diferentes.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"No puedes asignarte más de 3 áreas diferentes.", Toast.LENGTH_SHORT).show();
                 }
 
             }

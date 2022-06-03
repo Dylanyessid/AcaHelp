@@ -82,12 +82,12 @@
                 android:textSize="28sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eTDesc" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <Button
                 android:id="@+id/btnAnswer"
-                android:layout_width="251dp"
-                android:layout_height="61dp"
+                android:layout_width="275dp"
+                android:layout_height="85dp"
                 android:layout_marginTop="28dp"
                 android:background="@drawable/blue_button_background"
                 android:fontFamily="@font/red_hat_text_medium"
@@ -116,6 +116,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eTTitle4"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="381dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eTDesc"
+                app:srcCompat="@drawable/separator" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

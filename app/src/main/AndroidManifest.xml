@@ -17,6 +17,9 @@
         android:theme="@style/Theme.AcaHelp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AsignedPremiumQuestions"
+            android:exported="false" />
+        <activity
             android:name=".MyPremiumQuestions"
             android:exported="false" />
         <activity

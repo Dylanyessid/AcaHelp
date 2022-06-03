@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.acahelp.AsignedPremiumQuestions;
 import com.example.acahelp.MyPosts;
 import com.example.acahelp.MyPremiumQuestions;
 import com.example.acahelp.R;
@@ -48,6 +49,7 @@ public class ProfileFragment extends Fragment {
 
     private static userAPI userAPI = Constants.retrofit.create(userAPI.class);
     private static Call<User> call;
+    Button btnGoToAssignedQuestions;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -95,7 +97,15 @@ public class ProfileFragment extends Fragment {
         Button btnGoToMyAnswers = view.findViewById(R.id.btnGoToMyAnswers);
         Button btnGoToPremiumQuestions = view.findViewById(R.id.btnGoToPremiumQuestions);
         Button btnLogOut = view.findViewById(R.id.btnLogOut);
-
+         btnGoToAssignedQuestions = view.findViewById(R.id.btnGoToMyAsignedPremiumQuestions);
+        btnGoToAssignedQuestions.setVisibility(View.GONE);
+        btnGoToAssignedQuestions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AsignedPremiumQuestions.class);
+                startActivity(intent);
+            }
+        });
         btnGoToPremiumQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,6 +147,7 @@ public class ProfileFragment extends Fragment {
                    tVName.setText(response.body().getName() + " " + response.body().getSurname());
                    if(response.body().isQualified()){
                        tVType.setText("Usuario cualificado");
+                       btnGoToAssignedQuestions.setVisibility(View.VISIBLE);
                    }
                    else{
                        tVType.setText("Usuario normal");

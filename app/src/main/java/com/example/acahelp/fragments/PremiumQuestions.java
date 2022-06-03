@@ -11,12 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 
 import com.example.acahelp.R;
 import com.example.acahelp.adapters.PremiumQuestionAdapter;
 import com.example.acahelp.adapters.QuestionAdapter;
 import com.example.acahelp.interfaces.IQuestion;
 import com.example.acahelp.models.Question;
+import com.example.acahelp.models.Request;
+import com.example.acahelp.utilites.Constants;
 import com.example.acahelp.utilites.SpacingItemDecorator;
 
 import java.util.ArrayList;
@@ -41,15 +46,21 @@ public class PremiumQuestions extends Fragment {
     private static ArrayList<Question> questions;
     private static PremiumQuestionAdapter adapter;
     private static RecyclerView recyclerView;
+    private static Spinner area;
     private static SharedPreferences preferences;
+    private static Button btnSearch;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Request request;
 
     public PremiumQuestions() {
         // Required empty public constructor
     }
 
+    public PremiumQuestions(Request request) {
+        this.request = request;
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -83,27 +94,33 @@ public class PremiumQuestions extends Fragment {
         // Inflate the layout for this fragment
         preferences = getContext().getSharedPreferences( getString(R.string.sharedP), Context.MODE_PRIVATE);
         View view = inflater.inflate(R.layout.fragment_premium_questions, container, false);
+        area = view.findViewById(R.id.spinnerAreaSearch);
+        if(request!=null){
+            ArrayList<String> areas = request.getAreas();
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item, areas);
+            area.setAdapter(adapter);
+        }
+
+
         recyclerView = view.findViewById(R.id.recyclerPremiumQuestions);
-        getQuestions();
+        btnSearch = view.findViewById(R.id.btnSearchByArea);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getQuestions();
+            }
+        });
         return view;
     }
 
     private void getQuestions(){
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://back.dylanlopez1.repl.co")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        IQuestion IQuestion = retrofit.create(IQuestion.class);
-        Call<ArrayList<Question>> call = IQuestion.getPrivateQuestions(preferences.getString(getString(R.string.sharedP),"PRVT"));
+        IQuestion IQuestion = Constants.retrofit.create(IQuestion.class);
+        Call<ArrayList<Question>> call = IQuestion.getPrivateQuestions(preferences.getString(getString(R.string.sharedP),"PRVT"), area.getSelectedItem().toString());
         call.enqueue(new Callback<ArrayList<Question>>() {
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
                 questions = response.body();
-                if(!response.isSuccessful()){
-
-                }
                 adapter= new PremiumQuestionAdapter(questions, getActivity().getApplicationContext());
                 SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(30);
                 recyclerView.addItemDecoration(spacingItemDecorator);

@@ -103,13 +103,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/btnGoToMyAnswers" />
 
             <Button
-                android:id="@+id/btnGoToScoredAnswers"
+                android:id="@+id/btnGoToMyAsignedPremiumQuestions"
                 android:layout_width="317dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/button_options"
                 android:fontFamily="@font/red_hat_text_medium"
-                android:text="@string/GoToPremiumQuestions"
+                android:text="@string/goToMyAssignedQuestions"
                 android:textColor="@color/black"
                 android:textSize="32sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -132,7 +132,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnGoToScoredAnswers" />
+                app:layout_constraintTop_toBottomOf="@+id/btnGoToMyAsignedPremiumQuestions" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,7 +36,7 @@ public class QuestionDetails extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<Answer> answers;
     private Call<ArrayList<Answer>> call;
-    private String _id;
+    private String _id, user;
     private Button btnAnswer;
     private SharedPreferences preferences;
     private ArrayList<Score> scoredAnswers;
@@ -47,6 +47,7 @@ public class QuestionDetails extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==100){
             recyclerView.setVisibility(View.INVISIBLE);
+            btnAnswer.setEnabled(false);
             getAnswers();
             recyclerView.setVisibility(View.VISIBLE);
         }
@@ -64,10 +65,15 @@ public class QuestionDetails extends AppCompatActivity {
         eTTitle.setText(intent.getStringExtra("title"));
         eTDesc.setText(intent.getStringExtra("desc"));
         _id = (intent.getStringExtra("questionId"));
+        user = intent.getStringExtra("user");
+
+        System.out.println("Veamos,,, " + user +" " + _id);
         recyclerView = findViewById(R.id.recyclerAnswers);
         recyclerView.setVisibility(View.INVISIBLE);
         getScoredAnswers();
         getAnswers();
+
+
         btnAnswer = findViewById(R.id.btnAnswer);
         btnAnswer.setVisibility(View.INVISIBLE);
 
@@ -114,19 +120,33 @@ public class QuestionDetails extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                 answers = response.body();
-                AnswerAdapter adapter = new AnswerAdapter(answers, getApplicationContext(), scoredAnswers, isPrivate);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(30);
-                recyclerView.addItemDecoration(spacingItemDecorator);
-                recyclerView.setAdapter(adapter);
-                if(answers.size()==10 && !isPrivate){
-                    btnAnswer.setEnabled(false);
-                    btnAnswer.setText("Ya no se puede responder más.");
-                    btnAnswer.setBackgroundResource(R.drawable.button_options_danger);
-                    btnAnswer.setTextColor(getResources().getColor(R.color.danger));
+                if(isPrivate && answers.size()==0){
+                    if(user.equals(preferences.getString(getString(R.string.sharedP),"PRVT"))){
+                        System.out.println("MIRA: " + user);
+                        btnAnswer.setEnabled(false);
+                        btnAnswer.setText("No puedes enviar mensaje todavía.");
+                        btnAnswer.setBackgroundResource(R.drawable.button_options_danger);
+                        btnAnswer.setTextColor(getResources().getColor(R.color.danger));
+                    }
+
                 }
-                btnAnswer.setVisibility(View.VISIBLE);
-                recyclerView.setVisibility(View.VISIBLE);
+               if(answers !=null){
+                   AnswerAdapter adapter = new AnswerAdapter(answers, getApplicationContext(), scoredAnswers, isPrivate);
+                   recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                   SpacingItemDecorator spacingItemDecorator = new SpacingItemDecorator(30);
+                   recyclerView.addItemDecoration(spacingItemDecorator);
+                   recyclerView.setAdapter(adapter);
+                   if(answers.size()==10 && !isPrivate ){
+                       btnAnswer.setEnabled(false);
+                       btnAnswer.setText("Ya no se puede responder más.");
+                       btnAnswer.setBackgroundResource(R.drawable.button_options_danger);
+                       btnAnswer.setTextColor(getResources().getColor(R.color.danger));
+                   }else{
+                       btnAnswer.setEnabled(true);
+                   }
+                   btnAnswer.setVisibility(View.VISIBLE);
+                   recyclerView.setVisibility(View.VISIBLE);
+               }
             }
 
             @Override
