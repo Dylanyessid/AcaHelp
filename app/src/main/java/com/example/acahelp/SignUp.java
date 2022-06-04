@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.acahelp.interfaces.userAPI;
 import com.example.acahelp.models.User;
@@ -43,6 +44,29 @@ public class SignUp extends AppCompatActivity {
     };
 
     private void signUp(){
+
+        if(eTName.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(),"El nombre NO debe estar vacío;", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(eTSurname.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(),"El apellido NO debe estar vacío;", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(eTemail.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(),"El correo NO debe estar vacío;", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(eTPass.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(),"La contraseña NO debe estar vacía;", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(!eTPass.getText().toString().equals(eTConfirmPass.getText().toString())){
+            Toast.makeText(getApplicationContext(),"Las contraseñas NO coinciden", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         if(eTPass.getText().toString().equals(eTConfirmPass.getText().toString())){
             User user = new User(
