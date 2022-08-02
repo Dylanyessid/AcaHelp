@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public abstract class Constants {
-     private static String URI = "https://Back.dylanlopez1.repl.co";
+     private static String URI = "http://192.168.1.153:4000";
 
     public static String getURI() {
         return URI;

@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, Throwable t) {
                 btnLogin.setEnabled(true);
-                System.out.println( t.getCause());
+                System.out.println( t.getMessage() + "  || " );
                 Toast.makeText(getApplicationContext(),t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
